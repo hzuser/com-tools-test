@@ -1,0 +1,333 @@
+---- AspectJ Properties ---
+AspectJ Compiler 1.8.10 built on Monday Dec 12, 2016 at 19:07:48 GMT
+---- Dump Properties ---
+Dump file: ajcore.20221011.173116.574.txt
+Dump reason: org.aspectj.bridge.AbortException
+Dump on exception: true
+Dump at exit condition: abort
+---- Exception Information ---
+Message: abort trouble in: 
+class org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer extends org.springframework.boot.diagnostics.AbstractFailureAnalyzer:
+  private static final String JAVAX_MISSING_IMPLEMENTATION_MESSAGE = "Unable to create a Configuration, because no Bean Validation provider could be found"
+  private static final String JAKARTA_MISSING_IMPLEMENTATION_MESSAGE = "Unable to create a Configuration, because no Jakarta Bean Validation provider could be found"
+  void <init>():
+                    ALOAD_0     // Lorg/springframework/boot/diagnostics/analyzer/ValidationExceptionFailureAnalyzer; this   (line 31)
+                    INVOKESPECIAL org.springframework.boot.diagnostics.AbstractFailureAnalyzer.<init> ()V
+    constructor-execution(void org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.<init>())
+    |               RETURN
+    constructor-execution(void org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.<init>())
+  end void <init>()
+
+  protected org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, javax.validation.ValidationException):
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause   (line 41)
+                    INVOKEVIRTUAL javax.validation.ValidationException.getMessage ()Ljava/lang/String;
+                    LDC "Unable to create a Configuration, because no Bean Validation provider could be found"
+                    INVOKEVIRTUAL java.lang.String.startsWith (Ljava/lang/String;)Z
+                    IFNE L0
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause
+                    INVOKEVIRTUAL javax.validation.ValidationException.getMessage ()Ljava/lang/String;   (line 42)
+                    LDC "Unable to create a Configuration, because no Jakarta Bean Validation provider could be found"
+                    INVOKEVIRTUAL java.lang.String.startsWith (Ljava/lang/String;)Z
+                    IFEQ L1
+                L0: NEW org.springframework.boot.diagnostics.FailureAnalysis   (line 43)
+                    DUP
+                    LDC "The Bean Validation API is on the classpath but no implementation could be found"
+                    LDC "Add an implementation, such as Hibernate Validator, to the classpath"
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause
+                    INVOKESPECIAL org.springframework.boot.diagnostics.FailureAnalysis.<init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+                    ARETURN
+                L1: ACONST_NULL   (line 47)
+                    ARETURN
+  end protected org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, javax.validation.ValidationException)
+
+  protected volatile org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, Throwable):
+                    ALOAD_0     // Lorg/springframework/boot/diagnostics/analyzer/ValidationExceptionFailureAnalyzer; this   (line 31)
+                    ALOAD_1
+                    ALOAD_2
+                    CHECKCAST javax.validation.ValidationException
+                    INVOKEVIRTUAL org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.analyze (Ljava/lang/Throwable;Ljavax/validation/ValidationException;)Lorg/springframework/boot/diagnostics/FailureAnalysis;
+                    ARETURN
+  end protected volatile org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, Throwable)
+
+end class org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer
+ -- (ClassCastException) org.aspectj.weaver.MissingResolvedTypeWithKnownSignature cannot be cast to org.aspectj.weaver.ReferenceType
+org.aspectj.weaver.MissingResolvedTypeWithKnownSignature cannot be cast to org.aspectj.weaver.ReferenceType
+java.lang.ClassCastException: org.aspectj.weaver.MissingResolvedTypeWithKnownSignature cannot be cast to org.aspectj.weaver.ReferenceType
+	at org.aspectj.weaver.BoundedReferenceType.parameterize(BoundedReferenceType.java:109)
+	at org.aspectj.weaver.ResolvedType.parameterize(ResolvedType.java:2489)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterize(ResolvedMemberImpl.java:897)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:789)
+	at org.aspectj.weaver.ResolvedMemberImpl.parameterizedWith(ResolvedMemberImpl.java:742)
+	at org.aspectj.weaver.ReferenceType.getDeclaredMethods(ReferenceType.java:859)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:252)
+	at org.aspectj.weaver.ResolvedType$MethodGetterIncludingItds.get(ResolvedType.java:250)
+	at org.aspectj.weaver.Iterators$4$1.hasNext(Iterators.java:213)
+	at org.aspectj.weaver.Iterators$4.hasNext(Iterators.java:230)
+	at org.aspectj.weaver.ResolvedType.lookupResolvedMember(ResolvedType.java:619)
+	at org.aspectj.weaver.JoinPointSignatureIterator.findSignaturesFromSupertypes(JoinPointSignatureIterator.java:192)
+	at org.aspectj.weaver.JoinPointSignatureIterator.hasNext(JoinPointSignatureIterator.java:68)
+	at org.aspectj.weaver.patterns.SignaturePattern.matches(SignaturePattern.java:317)
+	at org.aspectj.weaver.patterns.KindedPointcut.matchInternal(KindedPointcut.java:197)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.AndPointcut.matchInternal(AndPointcut.java:56)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.patterns.OrPointcut.matchInternal(OrPointcut.java:60)
+	at org.aspectj.weaver.patterns.Pointcut.match(Pointcut.java:137)
+	at org.aspectj.weaver.ShadowMunger.match(ShadowMunger.java:113)
+	at org.aspectj.weaver.Advice.match(Advice.java:109)
+	at org.aspectj.weaver.bcel.BcelAdvice.match(BcelAdvice.java:151)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:3311)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.match(BcelClassWeaver.java:2692)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:480)
+	at org.aspectj.weaver.bcel.BcelClassWeaver.weave(BcelClassWeaver.java:100)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1700)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveWithoutDump(BcelWeaver.java:1644)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1409)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1191)
+	at org.aspectj.weaver.tools.WeavingAdaptor.getWovenBytes(WeavingAdaptor.java:527)
+	at org.aspectj.weaver.tools.WeavingAdaptor.weaveClass(WeavingAdaptor.java:363)
+	at org.aspectj.weaver.loadtime.Aj.preProcess(Aj.java:121)
+	at org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter.transform(ClassPreProcessorAgentAdapter.java:54)
+	at sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:428)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:284)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.loadFailureAnalyzers(FailureAnalyzers.java:75)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.<init>(FailureAnalyzers.java:66)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.<init>(FailureAnalyzers.java:60)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204)
+	at org.springframework.boot.SpringApplication.createSpringFactoriesInstances(SpringApplication.java:441)
+	at org.springframework.boot.SpringApplication.getSpringFactoriesInstances(SpringApplication.java:427)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:146)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
+	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
+
+org.aspectj.bridge.AbortException: trouble in: 
+class org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer extends org.springframework.boot.diagnostics.AbstractFailureAnalyzer:
+  private static final String JAVAX_MISSING_IMPLEMENTATION_MESSAGE = "Unable to create a Configuration, because no Bean Validation provider could be found"
+  private static final String JAKARTA_MISSING_IMPLEMENTATION_MESSAGE = "Unable to create a Configuration, because no Jakarta Bean Validation provider could be found"
+  void <init>():
+                    ALOAD_0     // Lorg/springframework/boot/diagnostics/analyzer/ValidationExceptionFailureAnalyzer; this   (line 31)
+                    INVOKESPECIAL org.springframework.boot.diagnostics.AbstractFailureAnalyzer.<init> ()V
+    constructor-execution(void org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.<init>())
+    |               RETURN
+    constructor-execution(void org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.<init>())
+  end void <init>()
+
+  protected org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, javax.validation.ValidationException):
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause   (line 41)
+                    INVOKEVIRTUAL javax.validation.ValidationException.getMessage ()Ljava/lang/String;
+                    LDC "Unable to create a Configuration, because no Bean Validation provider could be found"
+                    INVOKEVIRTUAL java.lang.String.startsWith (Ljava/lang/String;)Z
+                    IFNE L0
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause
+                    INVOKEVIRTUAL javax.validation.ValidationException.getMessage ()Ljava/lang/String;   (line 42)
+                    LDC "Unable to create a Configuration, because no Jakarta Bean Validation provider could be found"
+                    INVOKEVIRTUAL java.lang.String.startsWith (Ljava/lang/String;)Z
+                    IFEQ L1
+                L0: NEW org.springframework.boot.diagnostics.FailureAnalysis   (line 43)
+                    DUP
+                    LDC "The Bean Validation API is on the classpath but no implementation could be found"
+                    LDC "Add an implementation, such as Hibernate Validator, to the classpath"
+                    ALOAD_2     // Ljavax/validation/ValidationException; cause
+                    INVOKESPECIAL org.springframework.boot.diagnostics.FailureAnalysis.<init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+                    ARETURN
+                L1: ACONST_NULL   (line 47)
+                    ARETURN
+  end protected org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, javax.validation.ValidationException)
+
+  protected volatile org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, Throwable):
+                    ALOAD_0     // Lorg/springframework/boot/diagnostics/analyzer/ValidationExceptionFailureAnalyzer; this   (line 31)
+                    ALOAD_1
+                    ALOAD_2
+                    CHECKCAST javax.validation.ValidationException
+                    INVOKEVIRTUAL org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer.analyze (Ljava/lang/Throwable;Ljavax/validation/ValidationException;)Lorg/springframework/boot/diagnostics/FailureAnalysis;
+                    ARETURN
+  end protected volatile org.springframework.boot.diagnostics.FailureAnalysis analyze(Throwable, Throwable)
+
+end class org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer
+
+	at org.aspectj.bridge.MessageWriter.handleMessage(MessageWriter.java:47)
+	at org.aspectj.weaver.tools.WeavingAdaptor$WeavingAdaptorMessageWriter.handleMessage(WeavingAdaptor.java:797)
+	at org.aspectj.weaver.tools.WeavingAdaptor$WeavingAdaptorMessageHolder.handleMessage(WeavingAdaptor.java:742)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1726)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveWithoutDump(BcelWeaver.java:1644)
+	at org.aspectj.weaver.bcel.BcelWeaver.weaveAndNotify(BcelWeaver.java:1409)
+	at org.aspectj.weaver.bcel.BcelWeaver.weave(BcelWeaver.java:1191)
+	at org.aspectj.weaver.tools.WeavingAdaptor.getWovenBytes(WeavingAdaptor.java:527)
+	at org.aspectj.weaver.tools.WeavingAdaptor.weaveClass(WeavingAdaptor.java:363)
+	at org.aspectj.weaver.loadtime.Aj.preProcess(Aj.java:121)
+	at org.aspectj.weaver.loadtime.ClassPreProcessorAgentAdapter.transform(ClassPreProcessorAgentAdapter.java:54)
+	at sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:428)
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:338)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:284)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.loadFailureAnalyzers(FailureAnalyzers.java:75)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.<init>(FailureAnalyzers.java:66)
+	at org.springframework.boot.diagnostics.FailureAnalyzers.<init>(FailureAnalyzers.java:60)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204)
+	at org.springframework.boot.SpringApplication.createSpringFactoriesInstances(SpringApplication.java:441)
+	at org.springframework.boot.SpringApplication.getSpringFactoriesInstances(SpringApplication.java:427)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:120)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:146)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:73)
+	at org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:123)
+---- System Properties ---
+java.runtime.name=Java(TM) SE Runtime Environment
+sun.boot.library.path=D:\Java\jdk1.8.0_152\jre\bin
+java.vm.version=25.152-b16
+java.vm.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+path.separator=;
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+file.encoding.pkg=sun.io
+user.country=CN
+user.script=
+sun.java.launcher=SUN_STANDARD
+sun.os.patch.level=
+PID=21856
+java.vm.specification.name=Java Virtual Machine Specification
+user.dir=E:\project\com-tools-test
+intellij.debug.agent=true
+java.runtime.version=1.8.0_152-b16
+java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
+java.endorsed.dirs=D:\Java\jdk1.8.0_152\jre\lib\endorsed
+os.arch=amd64
+java.io.tmpdir=C:\Users\HUANGZ~1\AppData\Local\Temp\
+line.separator=
+
+java.vm.specification.vendor=Oracle Corporation
+user.variant=
+os.name=Windows 10
+sun.jnu.encoding=GBK
+spring.beaninfo.ignore=true
+java.library.path=D:\Java\jdk1.8.0_152\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;D:\Xshell 7\;E:\apache-maven-3.8.3\bin;E:\Git\cmd;E:\nodejs\;E:\mysql\mysql-5.7.36-winx64\bin;E:\redis\;C:\Users\huangzhan\AppData\Local\Microsoft\WindowsApps;E:\JetBrains\IntelliJ IDEA 2019.2.3\bin;;E:\Microsoft VS Code\bin;E:\apache-maven-3.8.3\bin;C:\Users\huangzhan\AppData\Roaming\npm;.
+jboss.modules.system.pkgs=com.intellij.rt
+java.specification.name=Java Platform API Specification
+java.class.version=52.0
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+os.version=10.0
+user.home=C:\Users\huangzhan
+user.timezone=Asia/Shanghai
+java.awt.printerjob=sun.awt.windows.WPrinterJob
+file.encoding=UTF-8
+java.specification.version=1.8
+java.class.path=E:\JetBrains\IntelliJ IDEA 2019.2.3\lib\idea_rt.jar;E:\JetBrains\IntelliJ IDEA 2019.2.3\plugins\testng\lib\testng-plugin.jar;D:\Java\jdk1.8.0_152\jre\lib\charsets.jar;D:\Java\jdk1.8.0_152\jre\lib\deploy.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\access-bridge-64.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\cldrdata.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\dnsns.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\jaccess.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\jfxrt.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\localedata.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\nashorn.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\sunec.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\sunjce_provider.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\sunmscapi.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\sunpkcs11.jar;D:\Java\jdk1.8.0_152\jre\lib\ext\zipfs.jar;D:\Java\jdk1.8.0_152\jre\lib\javaws.jar;D:\Java\jdk1.8.0_152\jre\lib\jce.jar;D:\Java\jdk1.8.0_152\jre\lib\jfr.jar;D:\Java\jdk1.8.0_152\jre\lib\jfxswt.jar;D:\Java\jdk1.8.0_152\jre\lib\jsse.jar;D:\Java\jdk1.8.0_152\jre\lib\management-agent.jar;D:\Java\jdk1.8.0_152\jre\lib\plugin.jar;D:\Java\jdk1.8.0_152\jre\lib\resources.jar;D:\Java\jdk1.8.0_152\jre\lib\rt.jar;E:\project\com-tools-test\target\test-classes;E:\project\com-tools-test\target\classes;E:\testUtils\testUtil-0.0.1-SNAPSHOT.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-data-jpa\2.3.4.RELEASE\spring-boot-starter-data-jpa-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-aop\2.3.4.RELEASE\spring-boot-starter-aop-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-aop\5.2.9.RELEASE\spring-aop-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\aspectj\aspectjweaver\1.8.10\aspectjweaver-1.8.10.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-jdbc\2.3.4.RELEASE\spring-boot-starter-jdbc-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\com\zaxxer\HikariCP\3.4.5\HikariCP-3.4.5.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-jdbc\5.2.9.RELEASE\spring-jdbc-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\jakarta\transaction\jakarta.transaction-api\1.3.3\jakarta.transaction-api-1.3.3.jar;E:\apache-maven-3.8.3\repositories\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;E:\apache-maven-3.8.3\repositories\org\hibernate\hibernate-core\5.4.21.Final\hibernate-core-5.4.21.Final.jar;E:\apache-maven-3.8.3\repositories\org\jboss\logging\jboss-logging\3.4.1.Final\jboss-logging-3.4.1.Final.jar;E:\apache-maven-3.8.3\repositories\org\javassist\javassist\3.24.0-GA\javassist-3.24.0-GA.jar;E:\apache-maven-3.8.3\repositories\net\bytebuddy\byte-buddy\1.10.14\byte-buddy-1.10.14.jar;E:\apache-maven-3.8.3\repositories\antlr\antlr\2.7.7\antlr-2.7.7.jar;E:\apache-maven-3.8.3\repositories\org\jboss\jandex\2.1.3.Final\jandex-2.1.3.Final.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;E:\apache-maven-3.8.3\repositories\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;E:\apache-maven-3.8.3\repositories\org\hibernate\common\hibernate-commons-annotations\5.1.0.Final\hibernate-commons-annotations-5.1.0.Final.jar;E:\apache-maven-3.8.3\repositories\org\glassfish\jaxb\jaxb-runtime\2.3.3\jaxb-runtime-2.3.3.jar;E:\apache-maven-3.8.3\repositories\org\glassfish\jaxb\txw2\2.3.3\txw2-2.3.3.jar;E:\apache-maven-3.8.3\repositories\com\sun\istack\istack-commons-runtime\3.0.11\istack-commons-runtime-3.0.11.jar;E:\apache-maven-3.8.3\repositories\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;E:\apache-maven-3.8.3\repositories\org\springframework\data\spring-data-jpa\2.3.4.RELEASE\spring-data-jpa-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\data\spring-data-commons\2.3.4.RELEASE\spring-data-commons-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-orm\5.2.9.RELEASE\spring-orm-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-context\5.2.9.RELEASE\spring-context-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-tx\5.2.9.RELEASE\spring-tx-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-beans\5.2.9.RELEASE\spring-beans-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-aspects\5.2.9.RELEASE\spring-aspects-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-thymeleaf\2.3.4.RELEASE\spring-boot-starter-thymeleaf-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter\2.3.4.RELEASE\spring-boot-starter-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-autoconfigure\2.3.4.RELEASE\spring-boot-autoconfigure-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-logging\2.3.4.RELEASE\spring-boot-starter-logging-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;E:\apache-maven-3.8.3\repositories\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;E:\apache-maven-3.8.3\repositories\org\apache\logging\log4j\log4j-to-slf4j\2.13.3\log4j-to-slf4j-2.13.3.jar;E:\apache-maven-3.8.3\repositories\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;E:\apache-maven-3.8.3\repositories\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;E:\apache-maven-3.8.3\repositories\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;E:\apache-maven-3.8.3\repositories\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-web\2.3.4.RELEASE\spring-boot-starter-web-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-json\2.3.4.RELEASE\spring-boot-starter-json-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\core\jackson-databind\2.11.2\jackson-databind-2.11.2.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\core\jackson-annotations\2.11.2\jackson-annotations-2.11.2.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\core\jackson-core\2.11.2\jackson-core-2.11.2.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.11.2\jackson-datatype-jdk8-2.11.2.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.11.2\jackson-datatype-jsr310-2.11.2.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\module\jackson-module-parameter-names\2.11.2\jackson-module-parameter-names-2.11.2.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-tomcat\2.3.4.RELEASE\spring-boot-starter-tomcat-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\apache\tomcat\embed\tomcat-embed-core\9.0.38\tomcat-embed-core-9.0.38.jar;E:\apache-maven-3.8.3\repositories\org\glassfish\jakarta.el\3.0.3\jakarta.el-3.0.3.jar;E:\apache-maven-3.8.3\repositories\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.38\tomcat-embed-websocket-9.0.38.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-web\5.2.9.RELEASE\spring-web-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-webmvc\5.2.9.RELEASE\spring-webmvc-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-expression\5.2.9.RELEASE\spring-expression-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\mysql\mysql-connector-java\8.0.21\mysql-connector-java-8.0.21.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-starter-test\2.3.4.RELEASE\spring-boot-starter-test-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-test-autoconfigure\2.3.4.RELEASE\spring-boot-test-autoconfigure-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\com\jayway\jsonpath\json-path\2.4.0\json-path-2.4.0.jar;E:\apache-maven-3.8.3\repositories\net\minidev\json-smart\2.3\json-smart-2.3.jar;E:\apache-maven-3.8.3\repositories\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;E:\apache-maven-3.8.3\repositories\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar;E:\apache-maven-3.8.3\repositories\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;E:\apache-maven-3.8.3\repositories\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;E:\apache-maven-3.8.3\repositories\org\assertj\assertj-core\3.16.1\assertj-core-3.16.1.jar;E:\apache-maven-3.8.3\repositories\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;E:\apache-maven-3.8.3\repositories\org\junit\jupiter\junit-jupiter\5.6.2\junit-jupiter-5.6.2.jar;E:\apache-maven-3.8.3\repositories\org\junit\jupiter\junit-jupiter-api\5.6.2\junit-jupiter-api-5.6.2.jar;E:\apache-maven-3.8.3\repositories\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;E:\apache-maven-3.8.3\repositories\org\junit\platform\junit-platform-commons\1.6.2\junit-platform-commons-1.6.2.jar;E:\apache-maven-3.8.3\repositories\org\junit\jupiter\junit-jupiter-params\5.6.2\junit-jupiter-params-5.6.2.jar;E:\apache-maven-3.8.3\repositories\org\junit\jupiter\junit-jupiter-engine\5.6.2\junit-jupiter-engine-5.6.2.jar;E:\apache-maven-3.8.3\repositories\org\junit\vintage\junit-vintage-engine\5.6.2\junit-vintage-engine-5.6.2.jar;E:\apache-maven-3.8.3\repositories\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;E:\apache-maven-3.8.3\repositories\org\junit\platform\junit-platform-engine\1.6.2\junit-platform-engine-1.6.2.jar;E:\apache-maven-3.8.3\repositories\org\mockito\mockito-core\3.3.3\mockito-core-3.3.3.jar;E:\apache-maven-3.8.3\repositories\net\bytebuddy\byte-buddy-agent\1.10.14\byte-buddy-agent-1.10.14.jar;E:\apache-maven-3.8.3\repositories\org\objenesis\objenesis\2.6\objenesis-2.6.jar;E:\apache-maven-3.8.3\repositories\org\mockito\mockito-junit-jupiter\3.3.3\mockito-junit-jupiter-3.3.3.jar;E:\apache-maven-3.8.3\repositories\org\skyscreamer\jsonassert\1.5.0\jsonassert-1.5.0.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-core\5.2.9.RELEASE\spring-core-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-jcl\5.2.9.RELEASE\spring-jcl-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\xmlunit\xmlunit-core\2.7.0\xmlunit-core-2.7.0.jar;E:\apache-maven-3.8.3\repositories\com\squareup\okhttp3\okhttp\4.0.0\okhttp-4.0.0.jar;E:\apache-maven-3.8.3\repositories\com\squareup\okio\okio\2.2.2\okio-2.2.2.jar;E:\apache-maven-3.8.3\repositories\org\jetbrains\kotlin\kotlin-stdlib\1.3.72\kotlin-stdlib-1.3.72.jar;E:\apache-maven-3.8.3\repositories\org\jetbrains\kotlin\kotlin-stdlib-common\1.3.72\kotlin-stdlib-common-1.3.72.jar;E:\apache-maven-3.8.3\repositories\org\jetbrains\annotations\13.0\annotations-13.0.jar;E:\apache-maven-3.8.3\repositories\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;E:\apache-maven-3.8.3\repositories\org\testng\testng\6.8\testng-6.8.jar;E:\apache-maven-3.8.3\repositories\junit\junit\4.13\junit-4.13.jar;E:\apache-maven-3.8.3\repositories\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;E:\apache-maven-3.8.3\repositories\org\beanshell\bsh\2.0b4\bsh-2.0b4.jar;E:\apache-maven-3.8.3\repositories\com\beust\jcommander\1.27\jcommander-1.27.jar;E:\apache-maven-3.8.3\repositories\org\yaml\snakeyaml\1.26\snakeyaml-1.26.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\allure\allure-testng-adaptor\1.3.6\allure-testng-adaptor-1.3.6.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\allure\allure-java-aspects\1.3.6\allure-java-aspects-1.3.6.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\allure\allure-java-commons\1.3.6\allure-java-commons-1.3.6.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\allure\allure-java-annotations\1.3.6\allure-java-annotations-1.3.6.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\allure\allure-model\1.3.6\allure-model-1.3.6.jar;E:\apache-maven-3.8.3\repositories\ru\yandex\qatools\properties\properties-loader\1.4\properties-loader-1.4.jar;E:\apache-maven-3.8.3\repositories\commons-beanutils\commons-beanutils-core\1.8.3\commons-beanutils-core-1.8.3.jar;E:\apache-maven-3.8.3\repositories\org\jvnet\jaxb2_commons\jaxb2-basics-runtime\0.6.5\jaxb2-basics-runtime-0.6.5.jar;E:\apache-maven-3.8.3\repositories\com\sun\xml\bind\jaxb-impl\2.2.7\jaxb-impl-2.2.7.jar;E:\apache-maven-3.8.3\repositories\com\sun\xml\bind\jaxb-core\2.2.7\jaxb-core-2.2.7.jar;E:\apache-maven-3.8.3\repositories\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;E:\apache-maven-3.8.3\repositories\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;E:\apache-maven-3.8.3\repositories\com\sun\xml\fastinfoset\FastInfoset\1.2.12\FastInfoset-1.2.12.jar;E:\apache-maven-3.8.3\repositories\javax\xml\bind\jsr173_api\1.0\jsr173_api-1.0.jar;E:\apache-maven-3.8.3\repositories\org\aspectj\aspectjrt\1.8.10\aspectjrt-1.8.10.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure-testng\2.0-BETA14\allure-testng-2.0-BETA14.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure-descriptions-javadoc\2.0-BETA14\allure-descriptions-javadoc-2.0-BETA14.jar;E:\apache-maven-3.8.3\repositories\commons-io\commons-io\2.5\commons-io-2.5.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure-java-commons\2.0-BETA14\allure-java-commons-2.0-BETA14.jar;E:\apache-maven-3.8.3\repositories\com\google\guava\guava\19.0\guava-19.0.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure2-model-api\1.0-BETA6\allure2-model-api-1.0-BETA6.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure2-model-pojo\1.0-BETA6\allure2-model-pojo-1.0-BETA6.jar;E:\apache-maven-3.8.3\repositories\org\apache\tika\tika-core\1.14\tika-core-1.14.jar;E:\apache-maven-3.8.3\repositories\io\qameta\allure\allure2-model-jackson\1.0-BETA6\allure2-model-jackson-1.0-BETA6.jar;E:\apache-maven-3.8.3\repositories\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.11.2\jackson-module-jaxb-annotations-2.11.2.jar;E:\apache-maven-3.8.3\repositories\org\apache\commons\commons-lang3\3.10\commons-lang3-3.10.jar;E:\apache-maven-3.8.3\repositories\org\jooq\joor\0.9.6\joor-0.9.6.jar;E:\apache-maven-3.8.3\repositories\org\projectlombok\lombok\1.18.10\lombok-1.18.10.jar;E:\apache-maven-3.8.3\repositories\net\sf\json-lib\json-lib\0.9\json-lib-0.9.jar;E:\apache-maven-3.8.3\repositories\commons-beanutils\commons-beanutils\1.7.0\commons-beanutils-1.7.0.jar;E:\apache-maven-3.8.3\repositories\commons-lang\commons-lang\2.2\commons-lang-2.2.jar;E:\apache-maven-3.8.3\repositories\commons-logging\commons-logging\1.1\commons-logging-1.1.jar;E:\apache-maven-3.8.3\repositories\logkit\logkit\1.0.1\logkit-1.0.1.jar;E:\apache-maven-3.8.3\repositories\avalon-framework\avalon-framework\4.1.3\avalon-framework-4.1.3.jar;E:\apache-maven-3.8.3\repositories\javax\servlet\servlet-api\2.3\servlet-api-2.3.jar;E:\apache-maven-3.8.3\repositories\xom\xom\1.1\xom-1.1.jar;E:\apache-maven-3.8.3\repositories\xerces\xmlParserAPIs\2.6.2\xmlParserAPIs-2.6.2.jar;E:\apache-maven-3.8.3\repositories\xerces\xercesImpl\2.6.2\xercesImpl-2.6.2.jar;E:\apache-maven-3.8.3\repositories\xalan\xalan\2.7.0\xalan-2.7.0.jar;E:\apache-maven-3.8.3\repositories\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;E:\apache-maven-3.8.3\repositories\jaxen\jaxen\1.2.0\jaxen-1.2.0.jar;E:\apache-maven-3.8.3\repositories\net\sf\ezmorph\ezmorph\0.8.1\ezmorph-0.8.1.jar;E:\apache-maven-3.8.3\repositories\com\alibaba\fastjson\1.2.4\fastjson-1.2.4.jar;E:\apache-maven-3.8.3\repositories\org\springframework\spring-test\5.2.9.RELEASE\spring-test-5.2.9.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot-test\2.3.4.RELEASE\spring-boot-test-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\org\springframework\boot\spring-boot\2.3.4.RELEASE\spring-boot-2.3.4.RELEASE.jar;E:\apache-maven-3.8.3\repositories\com\google\code\gson\gson\2.8.6\gson-2.8.6.jar;E:\apache-maven-3.8.3\repositories\cn\hutool\hutool-all\5.7.12\hutool-all-5.7.12.jar;E:\apache-maven-3.8.3\repositories\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;E:\apache-maven-3.8.3\repositories\org\slf4j\slf4j-log4j12\1.7.25\slf4j-log4j12-1.7.25.jar;E:\apache-maven-3.8.3\repositories\log4j\log4j\1.2.17\log4j-1.2.17.jar;E:\JetBrains\IntelliJ IDEA 2019.2.3\plugins\testng\lib\jcommander-1.27.jar;E:\apache-maven-3.8.3\repositories/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar;C:\Users\huangzhan\.IntelliJIdea2019.2\system\captureAgent\debugger-agent.jar
+user.name=huangzhan
+java.vm.specification.version=1.8
+sun.java.command=org.testng.RemoteTestNGStarter -usedefaultlisteners false -socket57727 @w@C:\Users\huangzhan\AppData\Local\Temp\idea_working_dirs_testng.tmp -temp C:\Users\huangzhan\AppData\Local\Temp\idea_testng.tmp
+java.home=D:\Java\jdk1.8.0_152\jre
+sun.arch.data.model=64
+user.language=zh
+java.specification.vendor=Oracle Corporation
+awt.toolkit=sun.awt.windows.WToolkit
+java.vm.info=mixed mode
+java.version=1.8.0_152
+java.ext.dirs=D:\Java\jdk1.8.0_152\jre\lib\ext;C:\windows\Sun\Java\lib\ext
+sun.boot.class.path=D:\Java\jdk1.8.0_152\jre\lib\resources.jar;D:\Java\jdk1.8.0_152\jre\lib\rt.jar;D:\Java\jdk1.8.0_152\jre\lib\sunrsasign.jar;D:\Java\jdk1.8.0_152\jre\lib\jsse.jar;D:\Java\jdk1.8.0_152\jre\lib\jce.jar;D:\Java\jdk1.8.0_152\jre\lib\charsets.jar;D:\Java\jdk1.8.0_152\jre\lib\jfr.jar;D:\Java\jdk1.8.0_152\jre\classes
+java.awt.headless=true
+java.vendor=Oracle Corporation
+file.separator=\
+java.vendor.url.bug=http://bugreport.sun.com/bugreport/
+idea.test.cyclic.buffer.size=1048576
+sun.io.unicode.encoding=UnicodeLittle
+sun.cpu.endian=little
+sun.desktop=windows
+sun.cpu.isalist=amd64
+---- Command Line ---
+Empty
+---- Full Classpath ---
+Empty
+---- Compiler Messages ---
+Empty
