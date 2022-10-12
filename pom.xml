@@ -153,7 +153,7 @@
                     <verbose>true</verbose>
                     <fork>true</fork>
                     <!--你的jdk地址-->
-                    <executable>F:/Java/jdk1.8.0_152/bin/javac</executable>
+                    <executable>E:/Java/jdk1.8.0_152/bin/javac</executable>
                 </configuration>
             </plugin>
             <plugin>
