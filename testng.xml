@@ -5,7 +5,8 @@
     <test verbose="2" preserve-order="true" name="Test">
         <classes>
 <!--            <class name="com.tools.test.TestApplicationTests" />-->
-            <class name="com.tools.test.baidu.BaiduTest" />
+<!--            <class name="com.tools.test.baidu.BaiduTest" />-->
+            <class name="com.tools.test.TestApplicationTests" />
 
         </classes>
     </test> <!-- Test -->
