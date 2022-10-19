@@ -3,5 +3,5 @@
 #logging.level.root=info
 spring:
   profiles:
-    active: test
+    active: @profiles.active@
 
