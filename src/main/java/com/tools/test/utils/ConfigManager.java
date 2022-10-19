@@ -11,11 +11,11 @@ import java.util.Properties;
 public class ConfigManager {
     private static Logger logger = LoggerFactory.getLogger(ConfigManager.class);
     private static Properties pConfFile = new Properties();
-    public static final String DEFAULT_ENV_FILENAME = "application.properties";
+    public static final String DEFAULT_ENV_FILENAME = "application.yml";
     public static final String PROPERTY_ENV = "spring.profiles.active";
     private static final String[] envs = new String[]{"test1", "test2", "test3", "local"};
     public static final String DEFAULT_ENV = "local";
-    public static final String LOCAL_ENV_FILENAME = "application.properties";
+    public static final String LOCAL_ENV_FILENAME = "application.yml";
     public static final String env = getDefaultEnv();
 
     public ConfigManager() {
@@ -27,7 +27,7 @@ public class ConfigManager {
 
     public static String getEnvConfigValue(String key, String env) {
         logger.debug(String.format("get key:%s, env:%s", key, env));
-        String filepath = "application.properties";
+        String filepath = "application.yml";
         if (!env.equals("local")) {
             filepath = "application-" + env + ".properties";
         }
@@ -61,7 +61,7 @@ public class ConfigManager {
     }
 
     private static String getDefaultEnv() {
-        String result = getConfigValue("spring.profiles.active", "application.properties");
+        String result = getConfigValue("spring.profiles.active", "application.yml");
         return StringUtils.isEmpty(result) ? "local" : result;
     }
 }

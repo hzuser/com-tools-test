@@ -1,0 +1,20 @@
+
+#baidu.url=http://www.baidu.com/
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vueadmin?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+# DataSource Config
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://localhost:3306/vueadmin?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+#spring.datasource.username=root
+#spring.datasource.password=123456
+#
+#mybatis-plus.mapper-locations=classpath*:/mapper/**Mapper.xml
